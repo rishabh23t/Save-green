@@ -1,0 +1,252 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Carbon Footprint App Clone
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+      <style>
+        
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+        }
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .result p {
+            color: brown;
+            font-weight: bold;
+        }
+    </style>
+ </head>
+ <body class="font-roboto bg-gray-100">
+ <header class="bg-green-600 text-white">
+   <div class="container mx-auto flex justify-between items-center py-4 px-6">    <div class="flex items-center">
+     <img alt="Carbon Footprint App logo with green and white colors" class="h-10" height="40" src="https://storage.googleapis.com/a1aa/image/AE8Jr0bIBh4ZGN2fQ99yZWlUfYormT7xB6NFhN4SoXFyTy7TA.jpg" width="100"/>
+    <h1 class="ml-4 text-2xl font-bold">
+      Save GREEN
+     </h1>
+  </header>
+  <main class="container mx-auto py-6 px-6">
+  
+   <div class="mb-6">
+    <img alt="Promotional banner with nature and eco-friendly images" class="w-full rounded" height="300" src="https://storage.googleapis.com/a1aa/image/VG5IeormOi0EJqtm0IEzgcZ0rReeQ00Zz2oHQM9gWYImnk3nA.jpg" width="1200"/>
+   </div>
+   <pre>  </pre>
+   <pre>  </pre>
+   <pre>  </pre>
+   <pre>  </pre>
+   <div class="container">
+    <h1><b>Carbon Footprint Calculator</b></h1>
+    <form id="carbonForm">
+        <div class="form-group">
+            <label for="electricity">Electricity (kWh per month):</label>
+                  <input type="number" id="electricity" required>
+        </div>
+        <div class="form-group">
+            <label for="car">Car travel (miles per month):</label>
+            <input type="number" id="car" required>
+        </div>
+
+        <div class="form-group">
+           <label for="flights">Flights (number of flights per year):</label>
+   <input type="number" id="flights" required>
+        </div>
+        <input type="submit" value="Calculate Carbon Footprint">
+    </form>
+
+    <div class="result" id="result">
+    </div>
+</div>
+<pre>  </pre>
+<pre>  </pre>
+<pre>  </pre>
+<pre>  </pre>
+
+<script>
+    const electricityEmissionFactor = 0.92;
+    const carEmissionFactor = 0.411; 
+    const flightEmissionFactor = 0.9;
+    function calculateCarbonFootprint(event) {
+        event.preventDefault();
+    const electricity = document.getElementById('electricity').value;
+        const car = document.getElementById('car').value;
+      const flights = document.getElementById('flights').value;
+        const electricityCO2 = electricity * electricityEmissionFactor;
+      const carCO2 = car * carEmissionFactor;
+        const flightCO2 = flights * flightEmissionFactor * 1000; 
+     const totalCO2 = electricityCO2 + carCO2 + flightCO2;
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+            <p>Total Carbon Footprint:</p>
+            <p>${totalCO2.toFixed(2)} kg CO2 per year</p>
+        `;
+    }
+    document.getElementById('carbonForm').addEventListener('submit', calculateCarbonFootprint);
+</script>
+<pre> </pre>
+<pre> </pre>
+<pre> </pre>
+   <section class="mb-6">
+    <h2 class="text-2xl font-bold mb-4">
+     Tips to Reduce Your Carbon Footprint
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+     <div class="bg-white p-4 rounded shadow">
+   <img alt="Image of a bicycle representing eco-friendly transport" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/jLyAc2H77MqwJ5VYmEGnqwqDa261HJNfGe300GcohsKsTy7TA.jpg" width="200"/>
+      <h3 class="text-lg font-semibold">
+       Use Public Transport
+      </h3>
+     <p class="text-gray-600">
+       Reduce your carbon footprint by using public transport or cycling.
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Image of solar panels representing renewable energy" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/e23ZRq0PkRSehUPUozQ4jX7BedeO4WiNLEX9X8j5B9VfdSeeJA.jpg" width="200"/>
+      <h3 class="text-lg font-semibold">
+       Switch to Renewable Energy
+      </h3>
+      <p class="text-gray-600">
+       Consider using renewable energy sources like solar or wind power.
+      </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow">
+  <img alt="Image of a reusable bag representing waste reduction" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/xyAoxxKMEbJIK15kGML7jJQomlwZGkzYLEZBVpAXCwE8k8eJA.jpg" width="200"/>
+      <h3 class="text-lg font-semibold">
+       Reduce, Reuse, Recycle
+      </h3>
+      <p class="text-gray-600">
+       Minimize waste by reducing, reusing, and recycling materials.
+  </p>
+     </div>
+     <div class="bg-white p-4 rounded shadow">
+      <img alt="Image of a plant-based meal representing sustainable eating" class="w-full mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/a4eUg6BsKT0kYikD5flIoe4LuhPEzjxwUuLOCUwrwOmcnk3nA.jpg" width="200"/>
+  <h3 class="text-lg font-semibold">
+       Eat a Plant-Based Diet
+      </h3>
+      <p class="text-gray-600">
+  Adopt a plant-based diet to lower your carbon footprint.
+      </p>
+     </div>
+ </div>
+   </section>
+  </main>
+  <footer class="bg-green-600 text-white py-6"><center>
+   <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+   <div>
+     <h3 class="text-lg font-semibold mb-4">
+      About
+     </h3>
+     <ul>
+   <li>
+       <a class="hover:underline" href="#">
+        Our Mission
+       </a>
+      </li>
+  <li>
+       <a class="hover:underline" href="#">
+        Team
+       </a>
+      </li>
+   <li>
+       <a class="hover:underline" href="#">
+        Careers
+   </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+       Blog
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h3 class="text-lg font-semibold mb-4">
+      Resources
+     </h3>
+  <ul>
+      <li>
+    <a class="hover:underline" href="#">
+        Carbon Calculator
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Eco-Friendly Tips
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Sustainability Reports
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        FAQs
+       </a>
+  </li>
+    </ul>
+    </div>
+    <div>
+     <h3 class="text-lg font-semibold mb-4">
+      Policy
+     </h3>
+     <ul>
+      <li>
+       <a class="hover:underline" href="#">
+        Privacy Policy
+      </a>
+  </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Terms of Service
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Cookie Policy
+       </a>
+  </li>
+     </ul>
+ </div>
+    <div>
+     <h3 class="text-lg font-semibold mb-4">
+      Follow Us
+     </h3>
+     <ul>
+
+      <li>
+      <a href="https://www.linkedin.com/in/rishabh-6aa0b9337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </li>
+  <li>
+        <a href="https://www.facebook.com/profile.php?id=100067997391851"_blank"><i class="fab fa-facebook"></i></a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/rishabh-6aa0b9337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </li>
+     </ul>
+    </div>
+   </div>
+</center></footer>
+ </body>
+</html>
